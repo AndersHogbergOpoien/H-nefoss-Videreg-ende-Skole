@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hønefoss Videregående Skole</title>
+
+</head>
+
+
+<style>
+  /* Text shadow gjør at teksten for en skygge under seg, tallene px står for målene på skyggen. */
+
+  h3 {
+    text-shadow: 5px 5px 13px #000000;
+  }
+
+
+  /* Background color står for fargen på body. */
+  body {
+    background-color: #DEF5E5;
+  }
+
+  /* Fargen på header. */
+  .header {
+
+    background: #ffffff;
+
+  }
+
+  /* Font family står for fonten, margin står for hvor langt ut fra siden objektet er. */
+  body {
+    font-family: Helvetica;
+    margin: 0;
+
+  }
+
+  /* text decoration none fjerner understreker eller andre dekorasjoner på tekst.. */
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+
+  /* Dette står for den blå linjen over header, og hva lengden på headeren er. */
+  .site-header {
+    border-top: 7px solid #017EBB;
+    padding: .5em 1em;
+    background: #ffffff;
+  }
+
+  /* Fargen rundt objektene i header. */
+  .site-header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Position på logoen. */
+  .site-identity {
+    float: left;
+  }
+
+/* Display inline block gjør at listen blir horisontal istedet for vertikal. */
+  .site-identity h1 {
+    font-size: 1.5em;
+    display: inline-block;
+  }
+
+  .site-identity img {
+    float: left;
+    margin-top: 16px;
+  }
+
+  /* Posisjon på navigasjons knappene(om oss, nyheter etc) */
+  .site-navigation {
+    float: right;
+  }
+
+  /* Padding gjør at det kommer ekstra plass på siden av et sted, jo høyere tallet jo mer ekstra plass. */
+  .site-navigation ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-navigation li {
+    display: inline-block;
+    margin: 1.4em 1em 1em 1em;
+  }
+
+  /* Gjør at teksten kommer i midten av bildet. */
+  .centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Instillinger for tekst og div som handler om skolen, border radius gjør at rammene blir mer runde.  */
+  .omskolen {
+    color: rgb(1, 1, 1);
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    border-radius: 25px;
+    background: #ffffff;
+    padding: 20px;
+    padding-bottom: 310px;
+    width: 80%;
+    height: 200px;
+    float: center;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.184);
+  }
+
+  .aktuelt {
+    color: rgb(1, 1, 1);
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    border-radius: 25px;
+    background: #ffffff;
+    padding-bottom: 980px;
+    width: 82%;
+    height: 200px;
+    float: center;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.184);
+  }
+
+  .aktueltimg {
+
+    margin-left: 18px;
+    margin-right: 18px;
+
+  }
+
+
+
+  /* Gjør at videon blir i midten. */
+  iframe {
+    margin: auto;
+    display: block
+  }
+
+  /* Disse kontrollerer posisjonen og fargen til navigasjon tekst. */
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #000000;
+  }
+
+  /* Disse kodene bestemmer posisjonen, størelsen,fargen og animasjone til underlinjen som kommer opp når man hovrer over navigasjonteksten */
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  /* handler om animasjon på underlinjen.Transform origin handler om hvor på objektet 
+  transformasjonen skjer. */
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  /* Position relative gjør objektet er posisjonert relativt til hvor det vanligvis ville ha vært. */
+  .aktueltbilder {
+    position: relative;
+    width: 50%;
+    content: "";
+    clear: both;
+    display: table;
+
+  }
+
+  /* Instillinger på bildet, størelse, posisjon, animasjon. */
+  .image {
+    opacity: 1;
+    width: 50%;
+    height: auto;
+    transition: .5s ease;
+    backface-visibility: hidden;
+    margin-left: 50%;
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+
+
+/* Dette handler om boksen i midten av bildene, transition handler om hvor lang tid det
+tar den for å poppe opp. Opacity står for gjennomsiktighet. */
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .aktueltbilder:hover .image {
+    opacity: 0.3;
+    box-shadow: 0px 0px 10px;
+  }
+
+  .aktueltbilder:hover .middle {
+    opacity: 1;
+  }
+
+  .text {
+    background-color: #0087ca;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+  }
+
+
+  *,
+  *:before,
+  *after {
+    box-sizing: border-box;
+
+  }
+
+  body {
+    margin: 0px;
+    display: grid;
+    font-size: 14px;
+
+  }
+
+/* Display flex codene endrer posisjonen på teksten i footer. */
+
+  footer {
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 50px;
+    color: #fff;
+    background-color: #017EBB;
+    border-top: 13px solid #62B6B7;
+    font-size: 16px;
+  }
+
+  .footer>* {
+    flex: 1 100%;
+  }
+
+  .footer-left {
+    margin-right: 1, 25em;
+    margin-bottom: 2em;
+
+  }
+
+  .footer-left img {
+    width: 30%;
+
+  }
+
+  h2 {
+
+    font-weight: 600;
+    font-size: 19px;
+
+  }
+/* List style fjerner prikker eller nummere på lister. */
+  .footer ul {
+    list-style: none;
+    padding-left: 0;
+  }
+/* Linje høyde */
+  .footerli {
+    line-height: 2em;
+
+  }
+
+  .footer a {
+    text-decoration: none;
+
+  }
+
+  .footer-right {
+
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    flex-flow: row wrap;
+
+  }
+
+  .footer-right>* {
+    flex: 1 50%;
+    margin-right: 1.25em;
+
+  }
+
+  .box a {
+    color: rgb(255, 255, 255);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+  }
+
+  .footer-left p {
+    padding-right: 20%;
+    color: rgb(255, 255, 255);
+  }
+/* Instilinger for boksene som sosiale medier logoene er i.  */
+  .socials a {
+    background: #364a6200;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .socials a i {
+    color: #e7f2f4;
+    padding: 10px 10px;
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 600px) {
+    .footer-right>* {
+      flex: 1;
+    }
+
+    .footer-left {
+      flex: 1 0px;
+    }
+
+
+
+  }
+
+  @media (max-width:600px) {
+    .footer {
+      padding: 15px;
+    }
+
+    main {
+      font-size: 55px;
+    }
+  }
+</style>
+
+
+
+
+<body>
+
+  <!-- En link til et stylesheet som inneholder sosiale medie logoer.  -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- id på header sånn at jeg kan bruke navigasjonsteksten til å komme meg til starten av siden. -->
+  <a id="Header">
+
+    <!-- forskjellige klasser sånn at jeg kan gjøre endringer i css. -->
+    <header class="site-header">
+      <div class="site-identity">
+
+        <!-- logo med #header som gjør at hvis du trykker på den så kommer du til toppen av siden. -->
+        <a href="HønefossVGSHovedside.html"><img src="vikenlogo.png" alt="Fylke" width="150"></a>
+
+      </div>
+      <nav class="site-navigation">
+        <ul class="nav">
+          <li><a href="#OmOss" class="hover-underline-animation"> Om oss </a></li>
+          <li><a href="#Aktuelt" class="hover-underline-animation">Aktuelt</a></li>
+          <li><a href="#footer" class="hover-underline-animation">Ta kontakt</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+  </a>
+<!-- Toppbildet på nettsiden -->
+  <main>
+    <div class="topbilde">
+      <img src="VgsToppBilde.jpg" alt="VgsToppbildet" width="100%">
+
+      <!-- stil som endrer på hvordan teksten ser ut, font, størelse, bold, farge, posisjon etc. -->
+      <div class="centered">
+        <h3
+          style="text-align:center;font-family:Verdana;font-size:70px;font-style:normal;font-weight:bold;color:#ffffff;">
+          HØNEFOSS VIDEREGÅENDE SKOLE</h3>
+      </div>
+
+      <br>
+      <br>
+
+      <a id="OmOss">
+<!-- Teksten til om oss.  -->
+        <div class="omskolen">
+          <h2 style="text-align:center;font-family:Verdana;font-size:30px;"> Om Skolen</h2>
+          <p style="text-align:center;font-family:Verdana;"> Velkommen til <b>Hønefoss vidergående skole</b>. Vi har 850
+            elever og 160 ansatte. Skolen tilbyr 15
+            forskjellige utdanningsløp og 35 forskjellige utdanninger. <b>Hønefoss videregående skole</b> står også for
+            opplæring i Ringerike fengsel. Skolen har et stort biblotek som elevene kan benytte seg av, en stor kantine
+            med god mat og mye sitteplas, og gymsal på Hønefoss arena med topp utstyr. </p>
+
+          <!-- video fra youtube som vises gjennom iframe. -->
+          <iframe width="420" height="315" src="https://www.youtube.com/embed/goF5dV-X1-U?autoplay=1&mute=1">
+          </iframe>
+        </div>
+
+      </a>
+
+      <a id="Aktuelt">
+        <div class="aktuelt">
+          <h2 style="text-align:center;font-family:Verdana;font-size:30px;"> Aktuelt</h2>
+
+
+          <!-- her er bilder som blir brukt under aktuelt. -->
+
+          <div class="aktueltbilder">
+
+            <img src="1ima.jpg" alt="1ima" class="image" style="width:100%">
+            <div class="middle">
+              <a href="1IMA.html">
+                <div class="text">1 IMA </div>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="aktueltbilder">
+
+            <img src="2ita.jpg" alt="2ita" class="image" style="width:100%">
+            <div class="middle">
+              <a href="2ITA.html">
+                <div class="text">2 ITA </div>
+              </a>
+            </div>
+
+          </div>
+
+          <div class="aktueltbilder">
+
+            <img src="kantine.jpg" alt="Kantine" class="image" style="width:100%">
+            <div class="middle">
+              <a href="Kantinen.html">
+                <div class="text">Kantine </div>
+              </a>
+            </div>
+
+          </div>
+
+  </main>
+  <!-- Br lager mellomrom -->
+  <br>
+
+  <br>
+
+  <br>
+<!-- Her starter footeren,  -->
+  <a id=footer>
+<!-- Klasser til footer sånn at jeg kan endre utesenede i css. -->
+    <footer class="footer">
+      <div class="footer-left">
+        <img src="vikenlogohvit.png" alt="logo">
+        <p> Velkommen til Hønefoss vidergående skole. Vi har 850 elever og 160 ansatte. Skolen tilbyr 15
+          forskjellige utdanningsløp og 35 forskjellige utdanninger. Hønefoss videregående skole står også for
+          opplæring i Ringerike fengsel. Skolen har et stort biblotek som elevene kan benytte seg av, en stor kantine
+          med god mat og mye sitteplas, og gymsal på Hønefoss arena med topp utstyr.
+        <div class="socials">
+          <!-- Sosiale medier logoer. -->
+          <a href="https://nb-no.facebook.com/honefossvgs/"><i class="fa fa-facebook"> </i></a>
+          <a href="https://www.youtube.com/@hnefossvideregaendeskole7798"><i class="fa fa-youtube"></i></a>
+          <a href="https://twitter.com/honefossvgs?lang=en"><i class="fa fa-twitter"></i></a>
+        </div>
+      </div>
+      <ul class="footer-right">
+<!-- Navigasjons linker som man kan trykke på.  -->
+        <li>
+          <h2>Navigasjons linker</h2>
+          <ul class="box">
+            <li><a href="#Header">Hjem</a></li>
+            <li><a href="#OmOss">Om oss</a></li>
+            <li><a href="#Aktuelt">Aktuelt</a></li>
+          </ul>
+        </li>
+
+        <!-- Linker til de andre nettsidene -->
+        <li class=features>
+          <h2>Nyttige linker</h2>
+          <ul class="box">
+            <li><a href="1IMA.html">1 IMA</a></li>
+            <li><a href="2ITA.html">2 ITA</a></li>
+            <li><a href="Kantinen.html">Kantinen</a></li>
+          </ul>
+        </li>
+<!-- Linker som man kan trykke på for å ringe, sende melding etc.  -->
+        <li>
+          <h2>Nyttig info</h2>
+          <ul class="box">
+            <li><a href="tel:+31 00 27 00"><b>Telefon:</b> 31 00 27 00</a></li>
+            <li><a href="mailto:honefossvgs@viken.no "><b>Email: </b> honefossvgs@viken.no</a></li>
+            <li><a href="https://goo.gl/maps/jtmxmUWKthZkBWkB8"><b>Adresse:</b> Osloveien 17 3511 Hønefoss</a></li>
+            <li><a> <b>Åpningstid:</b> 8:00-15:30</a></li>
+
+          </ul>
+        </li>
+
+      </ul>
+<!-- Bunntekst. -->
+      <div class="footer-bottom">
+        <p>Viken fylkeskommune</p>
+
+
+      </div>
+    </footer>
+
+  </a>
+</body>
+
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2ITA</title>
+</head>
+
+<style>
+  body {
+    background-color: #DEF5E5;
+  }
+
+  .header {
+
+    background: #ffffff;
+
+  }
+
+  /* Font family står for fonten, margin står for hvor langt ut fra siden objektet er. */
+  body {
+    font-family: Helvetica;
+    margin: 0;
+
+  }
+
+  /* text decoration none fjerner understreker. */
+  a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+  }
+
+  /* Dette står for den blå linjen over header, og hva lengden på headeren er. */
+  .site-header {
+    border-top: 7px solid #017EBB;
+    padding: .5em 1em;
+    background: #ffffff;
+  }
+
+  /* Fargen rundt objektene i header. */
+  .site-header::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  /* Position på logoen. */
+  .site-identity {
+    float: left;
+  }
+
+
+  .site-identity h1 {
+    font-size: 1.5em;
+    display: inline-block;
+  }
+
+  .site-identity img {
+    float: left;
+    margin-top: 16px;
+  }
+
+  /* Posisjon på navigasjons knappene(om oss, nyheter etc) */
+  .site-navigation {
+    float: right;
+  }
+
+  .site-navigation ul,
+  li {
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-navigation li {
+    display: inline-block;
+    margin: 1.4em 1em 1em 1em;
+  }
+
+  /* Disse kontrollerer posisjonen og fargen til navigasjon tekst. */
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: #000000;
+  }
+
+  /* Disse kodene bestemmer posisjonen, størelsen,fargen og animasjone til underlinjen som kommer opp når man hovrer over navigasjonteksten */
+  .hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  /* handler om animasjon på underlinjen. */
+  .hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+
+
+  }
+
+  .topptekst {
+    margin-left: 20px;
+    margin-right: 0px;
+    padding-top: 50px;
+    width: 100%;
+    position: relative;
+
+    display: flex;
+    float: right;
+
+  }
+
+  .topptekst img {
+    width: 60%;
+    height: 60%;
+    margin-left: 11%;
+    margin-right: 10px;
+  }
+
+  h3 {
+    text-shadow: 0px 0px 15px #00000096;
+    margin-left: 30px;
+    margin-top: 10%;
+  }
+
+  .om1ima {
+    color: rgb(1, 1, 1);
+    margin: auto;
+    margin-top: 30px;
+    padding: 5px;
+    border-radius: 25px;
+    background: #ffffff;
+    padding: 20px;
+    padding-bottom: 340px;
+    width: 90%;
+    height: 200px;
+    float: center;
+    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.184);
+
+  }
+
+  p2 {
+
+    text-align: center;
+    margin-left: 41%
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+
+
+  tr {
+    border-bottom: 3px solid #0087ca;
+  }
+
+  th,
+  td {
+    padding: 8px;
+    text-align: left;
+
+  }
+
+  *,
+  *:before,
+  *after {
+    box-sizing: border-box;
+
+  }
+
+  body {
+    margin: 0px;
+    display: grid;
+    font-size: 14px;
+
+  }
+
+
+
+  footer {
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    flex-flow: row wrap;
+    padding: 50px;
+    color: #fff;
+    background-color: #017EBB;
+    border-top: 13px solid #62B6B7;
+    font-size: 16px;
+  }
+
+  .footer>* {
+    flex: 1 100%;
+  }
+
+  .footer-left {
+    margin-right: 1, 25em;
+    margin-bottom: 2em;
+
+  }
+
+  .footer-left img {
+    width: 30%;
+
+  }
+
+  h2 {
+
+
+    font-size: 19px;
+
+  }
+
+  .footer ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .footerli {
+    line-height: 2em;
+
+  }
+
+  .footer a {
+    text-decoration: none;
+
+  }
+
+  .footer-right {
+
+    display: -webkit- flex;
+    display: -moz- flex;
+    display: -ms- flex;
+    display: -o- flex;
+    display: flex;
+    flex-flow: row wrap;
+
+  }
+
+  .footer-right>* {
+    flex: 1 50%;
+    margin-right: 1.25em;
+
+  }
+
+  .box a {
+    color: rgb(255, 255, 255);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    padding-top: 10px;
+  }
+
+  .footer-left p {
+    padding-right: 20%;
+    color: rgb(255, 255, 255);
+  }
+
+  .socials a {
+    background: #364a6200;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  .socials a i {
+    color: #e7f2f4;
+    padding: 10px 10px;
+    font-size: 20px;
+  }
+
+  @media screen and (min-width: 600px) {
+    .footer-right>* {
+      flex: 1;
+    }
+
+    .footer-left {
+      flex: 1 0px;
+    }
+
+
+
+  }
+
+  @media (max-width:600px) {
+    .footer {
+      padding: 15px;
+    }
+
+    main {
+      font-size: 55px;
+    }
+  }
+</style>
+
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <header class="site-header">
+    <div class="site-identity">
+
+      <!-- logo med #header som gjør at hvis du trykker på den så kommer du til toppen av siden. -->
+      <a href="HønefossVGSHovedside.html"><img src="vikenlogo.png" alt="Fylke" width="150"></a>
+
+    </div>
+    <nav class="site-navigation">
+      <ul class="nav">
+        <li><a href="HønefossVGSHovedside.html" class="hover-underline-animation">Om oss</a></li>
+        <li><a href="HønefossVGSHovedside.html" class="hover-underline-animation">Aktuelt</a></li>
+        <li><a href="HønefossVGSHovedside.html" class="hover-underline-animation">Ta kontakt</a></li>
+
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="topptekst">
+      <h3 style="text-align:left;font-family:Verdana;font-size:80px;font-style:normal;font-weight:bold;color:#ffffff;">
+        2 ITA</h3>
+      <img src="1itabildet.jpg" class="toppbildet">
+    </div>
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+    <div class="om1ima">
+      <h2 style="text-align:center;font-family:Verdana;font-size:30px;"> Om 2 ITA</h2>
+      <p1 style="text-align:right;font-family:Verdana;">
+        2 ITA er Informasjonsteknologi klassen på Hønefoss videregående skole.
+        Den består av ungdommer fra 16 til 18 år. I 2 ITA så liker vi å jobbe med pc, spesielt programmering.. Vi har
+        fagene kroppsøvning, Norsk, Samfunnskunnskap, Brukerstøtte, Driftstøtte, Utvikling og Yrkesfaglig fordypning.
+      </p1>
+
+      <br><br><br>
+      <p2 style="text-align:center;font-family:Verdana;"> <b>Dette er vår timeplan</b> </p2>
+
+      <br><br><br>
+
+      <table>
+        <tr>
+          <th>Time</th>
+          <th>Mandag</th>
+          <th>Tirsdag</th>
+          <th>Onsdag</th>
+          <th>Torsdag</th>
+          <th>Fredag</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Yrkesfagligfordypning vg2</td>
+          <td>Norsk</td>
+          <td>Brukerstøtte</td>
+          <td>Brukerstøtte</td>
+          <td>Sammfunnskunnskap</td>
+
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Yrkesfagligfordypning vg2</td>
+          <td>Driftstøtte</td>
+          <td>Utvikling</td>
+          <td>Brukerstøtte - Klassenstime</td>
+          <td>Norsk</td>
+        </tr>
+        <td>3</td>
+        <td>Yrkesfagligfordypning vg2</td>
+        <td>Driftstøtte</td>
+        <td>Utvikling</td>
+        <td>Klassenstime</td>
+        <td>Norsk</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Yrkesfagligfordypning vg2</td>
+          <td>Driftstøtte</td>
+          <td>Sammfunnskunnskap</td>
+          <td>Utvikling</td>
+          <td>Kroppsøvning vg2</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Yrkesfagligfordypning vg2</td>
+          <td>Driftstøtte</td>
+          <td></td>
+          <td>Utvikling</td>
+          <td></td>
+        </tr>
+
+      </table>
+
+    </div>
+
+
+  </main>
+
+  <br><br>
+
+  <footer class="footer">
+    <div class="footer-left">
+      <img src="vikenlogohvit.png" alt="logo">
+      <p> Velkommen til Hønefoss vidergående skole. Vi har 850 elever og 160 ansatte. Skolen tilbyr 15
+        forskjellige utdanningsløp og 35 forskjellige utdanninger. Hønefoss videregående skole står også for
+        opplæring i Ringerike fengsel. Skolen har et stort biblotek som elevene kan benytte seg av, en stor kantine
+        med god mat og mye sitteplas, og gymsal på Hønefoss arena med topp utstyr.
+      <div class="socials">
+        <a href="https://nb-no.facebook.com/honefossvgs/"><i class="fa fa-facebook"> </i></a>
+        <a href="https://www.youtube.com/@hnefossvideregaendeskole7798"><i class="fa fa-youtube"></i></a>
+        <a href="https://twitter.com/honefossvgs?lang=en"><i class="fa fa-twitter"></i></a>
+      </div>
+    </div>
+    <ul class="footer-right">
+
+      <li>
+        <h2>Navigasjons linker</h2>
+        <ul class="box">
+          <li><a href="#Header">Hjem</a></li>
+          <li><a href="#OmOss">Om oss</a></li>
+          <li><a href="#Aktuelt">Aktuelt</a></li>
+        </ul>
+      </li>
+
+      <li class=features>
+        <h2>Nyttige linker</h2>
+        <ul class="box">
+          <li><a href="1IMA.html">1 IMA</a></li>
+          <li><a href="2ITA.html">2 ITA</a></li>
+          <li><a href="Kantinen.html">Kantinen</a></li>
+        </ul>
+      </li>
+
+      <li>
+        <h2>Nyttig info</h2>
+        <ul class="box">
+          <li><a href="tel:+31 00 27 00"><b>Telefon:</b> 31 00 27 00</a></li>
+          <li><a href="mailto:honefossvgs@viken.no "><b>Email: </b> honefossvgs@viken.no</a></li>
+          <li><a href="https://goo.gl/maps/jtmxmUWKthZkBWkB8"><b>Adresse:</b> Osloveien 17 3511 Hønefoss</a></li>
+          <li><a> <b>Åpningstid:</b> 8:00-15:30</a></li>
+
+        </ul>
+      </li>
+
+    </ul>
+
+    <div class="footer-bottom">
+      <p>Viken fylkeskommune</p>
+
+
+    </div>
+  </footer>
+
+  </a>
+
+</body>
+
+</html>
